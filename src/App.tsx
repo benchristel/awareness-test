@@ -1,6 +1,6 @@
 import {h} from "preact"
 import "./app.css"
-import {RecognitionTest} from "./RecognitionTest"
+import {RecognitionTest} from "./app/RecognitionTest"
 
 export function App() {
   return <RecognitionTest />

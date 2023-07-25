@@ -1,6 +1,7 @@
 import "./test-results.css"
 
-if ((import.meta as any).env.DEV) {
+if (import.meta.env.DEV) {
+  import.meta.glob("./**/*.test.ts", {eager: true})
   import("@benchristel/taste")
     .then(({getAllTests, runTests, formatTestResultsAsText}) =>
       runTests(getAllTests()).then(formatTestResultsAsText),

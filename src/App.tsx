@@ -1,12 +1,7 @@
 import {h} from "preact"
 import "./app.css"
+import {RecognitionTest} from "./RecognitionTest"
 
 export function App() {
-  return <h1>Hello from Preact!</h1>
+  return <RecognitionTest />
 }
-
-test("App", {
-  "renders a greeting"() {
-    expect(App().props.children, equals, "Hello from Preact!")
-  },
-})

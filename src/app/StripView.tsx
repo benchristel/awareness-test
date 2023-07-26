@@ -15,7 +15,8 @@ function svgForSquare(color: Square, left: number) {
     <rect
       width="1"
       height="1"
-      x={left}
+      x={left + 0.5}
+      y={0.5}
       style={{stroke: color, fill: color}}
     />
   )

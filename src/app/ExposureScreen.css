@@ -13,6 +13,9 @@
 }
 
 .ExposureScreen .Grid > .Row > .Sector {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: 2px inset #999;
   width: 160px;
   height: 160px;

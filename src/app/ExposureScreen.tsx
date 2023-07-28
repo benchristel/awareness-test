@@ -1,11 +1,13 @@
 import {h} from "preact"
 import {StripView} from "./StripView"
 import {Strip} from "../domain/strip"
+import {Spacer} from "../infra/Spacer"
 import "./ExposureScreen.css"
 
 export function ExposureScreen() {
   return (
     <div class="ExposureScreen">
+      <Spacer px={36} />
       <div class="GrayBackground">
         <div class="Row">
           {stripContainer(1)}

@@ -1,28 +1,20 @@
-.ExposureScreen .Grid {
-  background-color: #999;
-  border: 2px outset #aaa;
+.ExposureScreen .GrayBackground {
   display: flex;
   flex-direction: column;
   width: min-content;
   margin: 0 auto;
+  border: 2px outset #aaa;
+  background-color: #999;
+  padding: 10px;
 }
 
-.ExposureScreen .Grid > .Row {
+.ExposureScreen .Row {
   display: flex;
   flex-direction: row;
 }
 
-.ExposureScreen .Grid > .Row > .Sector {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 2px inset #aaa;
-  width: 160px;
-  height: 160px;
-  margin: 1px;
-}
-
 .ExposureScreen .StripContainer {
-  padding: 8px;
-  height: 36px;
+  flex-grow: 0;
+  margin: 8px;
+  width: 140px;
 }

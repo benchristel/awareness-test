@@ -1,5 +1,6 @@
 import {h} from "preact"
 import {Square, Strip, patterns} from "../domain/strip"
+import "./StripView.css"
 
 export type Props = {
   strip: Strip
@@ -7,7 +8,11 @@ export type Props = {
 
 export function StripView(props: Props) {
   const pattern = patterns[props.strip]
-  return <svg viewBox="0 0 7 1">{pattern.map(svgForSquare)}</svg>
+  return (
+    <svg class="Strip" viewBox="0 0 7 1">
+      {pattern.map(svgForSquare)}
+    </svg>
+  )
 }
 
 function svgForSquare(color: Square, left: number) {

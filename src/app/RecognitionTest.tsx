@@ -1,7 +1,7 @@
 import {h, Fragment} from "preact"
 import {useState, useMemo} from "preact/hooks"
 import {Challenge, generateChallenge} from "../domain/challenge"
-import {ExposureScreen} from "./ExposureScreen"
+import {ExposureView} from "./ExposureView"
 import {Timeout} from "../lib/Timeout"
 
 export function RecognitionTest() {
@@ -41,7 +41,7 @@ function exposureView(
 ) {
   return (
     <>
-      <ExposureScreen challenge={challenge} />
+      <ExposureView challenge={challenge} />
       <Timeout ms={1000} onExpired={() => update(hideStrips)} />
     </>
   )

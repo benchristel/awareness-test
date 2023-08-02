@@ -2,7 +2,7 @@ import {h} from "preact"
 import {StripView} from "./StripView"
 import {Strip} from "../domain/strip"
 import {Spacer} from "../infra/Spacer"
-import "./ExposureScreen.css"
+import "./ExposureView.css"
 import {slicesOf} from "../lib/arrays"
 import {Challenge} from "../domain/challenge"
 
@@ -10,10 +10,10 @@ type Props = {
   challenge: Challenge
 }
 
-export function ExposureScreen(props: Props) {
+export function ExposureView(props: Props) {
   const rows = slicesOf(5, props.challenge.grid)
   return (
-    <div class="ExposureScreen">
+    <div class="ExposureView">
       <Spacer px={36} />
       <div class="GrayBackground">
         {rows.map((row) => (

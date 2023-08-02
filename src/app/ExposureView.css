@@ -1,4 +1,4 @@
-.ExposureScreen .GrayBackground {
+.ExposureView .GrayBackground {
   display: flex;
   flex-direction: column;
   width: min-content;
@@ -8,12 +8,12 @@
   padding: 10px;
 }
 
-.ExposureScreen .Row {
+.ExposureView .Row {
   display: flex;
   flex-direction: row;
 }
 
-.ExposureScreen .StripContainer {
+.ExposureView .StripContainer {
   flex-grow: 0;
   margin: 8px;
   width: 140px;

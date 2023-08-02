@@ -17,9 +17,7 @@ export function ExposureScreen(props: Props) {
       <Spacer px={36} />
       <div class="GrayBackground">
         {rows.map((row) => (
-          <div class="Row">
-            {row.map((strip) => stripContainer(strip))}
-          </div>
+          <div class="Row">{row.map(stripContainer)}</div>
         ))}
       </div>
     </div>

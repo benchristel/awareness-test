@@ -7,31 +7,14 @@ import {Timeout} from "../lib/Timeout"
 export function RecognitionTest() {
   const challenge = useMemo(generateChallenge, [])
   const [state, update] = useState(initialState)
-  return view(state, challenge, update)
-}
 
-type ScreenState =
-  | {name: "training"}
-  | {name: "countdown"; secondsRemaining: number}
-  | {name: "exposure"}
-  | {name: "recall"}
-
-function initialState(): ScreenState {
-  return {name: "training"}
-}
-
-type UpdateFn<T> = (action: (state: T) => T) => unknown
-
-function view(
-  state: ScreenState,
-  challenge: Challenge,
-  update: UpdateFn<ScreenState>,
-) {
   switch (state.name) {
     case "recall":
       return recallView()
-    default:
+    case "exposure":
       return exposureView(challenge, update)
+    default:
+      throw "Unhandled RecognitionTest state " + state.name
   }
 }
 
@@ -49,6 +32,18 @@ function exposureView(
 
 function recallView() {
   return <h1>This is the recall view</h1>
+}
+
+type UpdateFn<T> = (action: (state: T) => T) => unknown
+
+type ScreenState =
+  | {name: "training"}
+  | {name: "countdown"; secondsRemaining: number}
+  | {name: "exposure"}
+  | {name: "recall"}
+
+function initialState(): ScreenState {
+  return {name: "exposure"}
 }
 
 function hideStrips(): ScreenState {

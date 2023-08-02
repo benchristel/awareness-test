@@ -1,12 +1,12 @@
 import {h} from "preact"
 import {useState, useRef} from "preact/hooks"
-import {generateChallenge} from "../domain/challenge"
+import {Challenge, generateChallenge} from "../domain/challenge"
 import {ExposureScreen} from "./ExposureScreen"
 
 export function RecognitionTest() {
   const challenge$ = useRef(generateChallenge())
   const [state, update] = useState(initialState)
-  return view(state, update)
+  return view(state, challenge$.current, update)
 }
 
 type ScreenState =
@@ -21,6 +21,10 @@ function initialState(): ScreenState {
 
 type UpdateFn<T> = (action: (state: T) => T) => unknown
 
-function view(state: ScreenState, update: UpdateFn<ScreenState>) {
-  return <ExposureScreen />
+function view(
+  state: ScreenState,
+  challenge: Challenge,
+  update: UpdateFn<ScreenState>,
+) {
+  return <ExposureScreen challenge={challenge} />
 }

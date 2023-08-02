@@ -1,18 +1,26 @@
 import {h} from "preact"
 import {StripView} from "./StripView"
-import {Strip, strips} from "../domain/strip"
+import {Strip} from "../domain/strip"
 import {Spacer} from "../infra/Spacer"
 import "./ExposureScreen.css"
-import { shuffled } from "../lib/random"
-import { slicesOf } from "../lib/arrays"
+import {slicesOf} from "../lib/arrays"
+import {Challenge} from "../domain/challenge"
 
-export function ExposureScreen() {
-  const rows = slicesOf(5, shuffled(strips))
+type Props = {
+  challenge: Challenge
+}
+
+export function ExposureScreen(props: Props) {
+  const rows = slicesOf(5, props.challenge.grid)
   return (
     <div class="ExposureScreen">
       <Spacer px={36} />
       <div class="GrayBackground">
-        {rows.map(row => <div class="Row">{row.map(strip => stripContainer(strip))}</div>)}
+        {rows.map((row) => (
+          <div class="Row">
+            {row.map((strip) => stripContainer(strip))}
+          </div>
+        ))}
       </div>
     </div>
   )

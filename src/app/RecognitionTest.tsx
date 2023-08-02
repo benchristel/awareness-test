@@ -11,9 +11,9 @@ export function RecognitionTest() {
 
   switch (state.name) {
     case "recall":
-      return recallView()
+      return recallScreen()
     case "exposure":
-      return exposureView(challenge, update)
+      return exposureScreen(challenge, update)
     default:
       throw unreachable(
         "recognition test state",
@@ -23,7 +23,7 @@ export function RecognitionTest() {
   }
 }
 
-function exposureView(
+function exposureScreen(
   challenge: Challenge,
   update: UpdateFn<ScreenState>,
 ) {
@@ -35,7 +35,7 @@ function exposureView(
   )
 }
 
-function recallView() {
+function recallScreen() {
   return <h1>This is the recall view</h1>
 }
 

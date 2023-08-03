@@ -1,9 +1,12 @@
 .GhostStrip {
+  display: block;
   border: 1px solid #000;
   background: #acacac;
+  padding: 0;
 }
 
-.GhostStrip:hover {
+.GhostStrip:hover,
+.GhostStrip:focus-visible {
   background: #acc;
   cursor: pointer;
 }

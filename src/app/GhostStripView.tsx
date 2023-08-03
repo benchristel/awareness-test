@@ -1,6 +1,12 @@
 import {h} from "preact"
 import "./GhostStrip.css"
 
-export function GhostStripView() {
-  return <div class="GhostStrip" />
+type Props = {
+  onClick: () => unknown
+}
+
+export function GhostStripView(props: Props) {
+  return (
+    <button class="GhostStrip" onClick={props.onClick} tabIndex={0} />
+  )
 }

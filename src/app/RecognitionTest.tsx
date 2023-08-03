@@ -42,7 +42,9 @@ function exposureScreen(
 function recallScreen(challenge: Challenge) {
   return (
     <GridView challenge={challenge}>
-      {() => <GhostStripView />}
+      {(strip) => (
+        <GhostStripView onClick={() => alert("clicked " + strip)} />
+      )}
     </GridView>
   )
 }

@@ -1,3 +1,15 @@
-.Strip {
-  display: block;
+.Strip,
+.GhostStrip {
+  height: 100%;
+  width: 100%;
+}
+
+.GhostStrip {
+  border: 1px solid #000;
+  background: #acacac;
+}
+
+.GhostStrip:hover {
+  background: #acc;
+  cursor: pointer;
 }

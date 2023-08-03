@@ -1,7 +1,7 @@
 import {h, Fragment} from "preact"
 import {useState, useMemo} from "preact/hooks"
 import {Challenge, generateChallenge} from "../domain/challenge"
-import {ExposureView} from "./ExposureView"
+import {GridView} from "./GridView"
 import {Timeout} from "../lib/Timeout"
 import {unreachable} from "../lib/unreachable"
 
@@ -11,7 +11,7 @@ export function RecognitionTest() {
 
   switch (state.name) {
     case "recall":
-      return recallScreen()
+      return recallScreen(challenge)
     case "exposure":
       return exposureScreen(challenge, update)
     default:
@@ -29,14 +29,14 @@ function exposureScreen(
 ) {
   return (
     <>
-      <ExposureView challenge={challenge} />
+      <GridView challenge={challenge} ghostStrips={false} />
       <Timeout ms={1000} onExpired={() => update(hideStrips)} />
     </>
   )
 }
 
-function recallScreen() {
-  return <h1>This is the recall view</h1>
+function recallScreen(challenge: Challenge) {
+  return <GridView challenge={challenge} ghostStrips={true} />
 }
 
 type UpdateFn<T> = (action: (state: T) => T) => unknown

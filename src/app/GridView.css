@@ -1,4 +1,4 @@
-.ExposureView .GrayBackground {
+.GridView .GrayBackground {
   display: flex;
   flex-direction: column;
   width: min-content;
@@ -8,13 +8,14 @@
   padding: 10px;
 }
 
-.ExposureView .Row {
+.GridView .Row {
   display: flex;
   flex-direction: row;
 }
 
-.ExposureView .StripContainer {
+.GridView .StripContainer {
   flex-grow: 0;
   margin: 8px;
   width: 140px;
+  height: 20px;
 }

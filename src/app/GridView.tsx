@@ -1,33 +1,31 @@
 import {h} from "preact"
 import {StripView} from "./StripView"
-import {Strip} from "../domain/strip"
 import {Spacer} from "../infra/Spacer"
-import "./ExposureView.css"
+import "./GridView.css"
 import {slicesOf} from "../lib/arrays"
 import {Challenge} from "../domain/challenge"
 
 type Props = {
   challenge: Challenge
+  ghostStrips: boolean
 }
 
-export function ExposureView(props: Props) {
+export function GridView(props: Props) {
   const rows = slicesOf(5, props.challenge.grid)
   return (
-    <div class="ExposureView">
+    <div class="GridView">
       <Spacer px={36} />
       <div class="GrayBackground">
         {rows.map((row) => (
-          <div class="Row">{row.map(stripContainer)}</div>
+          <div class="Row">
+            {row.map((strip) => (
+              <div class="StripContainer">
+                <StripView strip={strip} ghost={props.ghostStrips} />
+              </div>
+            ))}
+          </div>
         ))}
       </div>
-    </div>
-  )
-}
-
-function stripContainer(strip: Strip) {
-  return (
-    <div class="StripContainer">
-      <StripView strip={strip} />
     </div>
   )
 }

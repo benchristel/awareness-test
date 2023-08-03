@@ -1,5 +1,5 @@
 import {h} from "preact"
-import "./GhostStrip.css"
+import "./GhostStripView.css"
 
 type Props = {
   onClick: () => unknown

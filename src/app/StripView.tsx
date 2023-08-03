@@ -4,15 +4,10 @@ import "./StripView.css"
 
 export type Props = {
   strip: Strip
-  ghost: boolean
 }
 
 export function StripView(props: Props) {
   const pattern = patterns[props.strip]
-
-  if (props.ghost) {
-    return <div class="GhostStrip" />
-  }
 
   return (
     <svg class="Strip" viewBox="0 0 7 1" preserveAspectRatio="none">

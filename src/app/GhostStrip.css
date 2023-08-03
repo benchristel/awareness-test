@@ -1,0 +1,9 @@
+.GhostStrip {
+  border: 1px solid #000;
+  background: #acacac;
+}
+
+.GhostStrip:hover {
+  background: #acc;
+  cursor: pointer;
+}

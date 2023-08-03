@@ -5,6 +5,7 @@ import {GridView} from "./GridView"
 import {Timeout} from "../lib/Timeout"
 import {unreachable} from "../lib/unreachable"
 import {StripView} from "./StripView"
+import {GhostStripView} from "./GhostStripView"
 
 export function RecognitionTest() {
   const challenge = useMemo(generateChallenge, [])
@@ -31,7 +32,7 @@ function exposureScreen(
   return (
     <>
       <GridView challenge={challenge}>
-        {(strip) => <StripView strip={strip} ghost={false} />}
+        {(strip) => <StripView strip={strip} />}
       </GridView>
       <Timeout ms={1000} onExpired={() => update(hideStrips)} />
     </>
@@ -41,7 +42,7 @@ function exposureScreen(
 function recallScreen(challenge: Challenge) {
   return (
     <GridView challenge={challenge}>
-      {(strip) => <StripView strip={strip} ghost={true} />}
+      {() => <GhostStripView />}
     </GridView>
   )
 }

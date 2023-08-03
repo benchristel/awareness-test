@@ -4,16 +4,17 @@ export type Action = (current: ScreenState) => ScreenState
 
 export type UpdateFn = (action: Action) => unknown
 
-export type ScreenState =
-  | {name: "exposure"}
-  | {name: "recall"}
-  | {name: "feedback"; response: Strip}
+export type ScreenState = ExposureState | RecallState | FeedbackState
 
-export function initialState(): ScreenState {
+export type ExposureState = {name: "exposure"}
+export type RecallState = {name: "recall"}
+export type FeedbackState = {name: "feedback"; response: Strip}
+
+export function init(): ScreenState {
   return {name: "exposure"}
 }
 
-export function hideStrips(): ScreenState {
+export const hideStrips: Action = () => {
   return {name: "recall"}
 }
 

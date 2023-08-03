@@ -7,16 +7,16 @@ import {unreachable} from "../lib/unreachable"
 import {StripView} from "./StripView"
 import {GhostStripView} from "./GhostStripView"
 import {
-  ScreenState,
+  FeedbackState,
   UpdateFn,
   hideStrips,
-  initialState,
+  init,
   submitResponse,
 } from "./RecognitionTestState"
 
 export function RecognitionTest() {
   const challenge = useMemo(generateChallenge, [])
-  const [state, update] = useState(initialState)
+  const [state, update] = useState(init)
 
   switch (state.name) {
     case "recall":
@@ -57,10 +57,7 @@ function recallScreen(challenge: Challenge, update: UpdateFn) {
   )
 }
 
-function feedbackScreen(
-  challenge: Challenge,
-  state: Extract<ScreenState, {name: "feedback"}>,
-) {
+function feedbackScreen(challenge: Challenge, state: FeedbackState) {
   const message =
     challenge.target === state.response ? "Correct!" : "Nope."
   return <p>{message}</p>

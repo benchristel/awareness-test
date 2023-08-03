@@ -1,6 +1,8 @@
 import {Strip} from "../domain/strip"
 
-export type UpdateFn<T> = (action: (state: T) => T) => unknown
+export type Action = (current: ScreenState) => ScreenState
+
+export type UpdateFn = (action: Action) => unknown
 
 export type ScreenState =
   | {name: "exposure"}
@@ -15,8 +17,6 @@ export function hideStrips(): ScreenState {
   return {name: "recall"}
 }
 
-export function submitResponse(
-  response: Strip,
-): (current: ScreenState) => ScreenState {
+export function submitResponse(response: Strip): Action {
   return () => ({name: "feedback", response})
 }

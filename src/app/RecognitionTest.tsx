@@ -34,10 +34,7 @@ export function RecognitionTest() {
   }
 }
 
-function exposureScreen(
-  challenge: Challenge,
-  update: UpdateFn<ScreenState>,
-) {
+function exposureScreen(challenge: Challenge, update: UpdateFn) {
   return (
     <>
       <GridView challenge={challenge}>
@@ -48,10 +45,7 @@ function exposureScreen(
   )
 }
 
-function recallScreen(
-  challenge: Challenge,
-  update: UpdateFn<ScreenState>,
-) {
+function recallScreen(challenge: Challenge, update: UpdateFn) {
   return (
     <GridView challenge={challenge}>
       {(strip) => (

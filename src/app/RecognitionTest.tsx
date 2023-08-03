@@ -6,7 +6,13 @@ import {Timeout} from "../lib/Timeout"
 import {unreachable} from "../lib/unreachable"
 import {StripView} from "./StripView"
 import {GhostStripView} from "./GhostStripView"
-import {Strip} from "../domain/strip"
+import {
+  ScreenState,
+  UpdateFn,
+  hideStrips,
+  initialState,
+  submitResponse,
+} from "./RecognitionTestState"
 
 export function RecognitionTest() {
   const challenge = useMemo(generateChallenge, [])
@@ -64,25 +70,4 @@ function feedbackScreen(
   const message =
     challenge.target === state.response ? "Correct!" : "Nope."
   return <p>{message}</p>
-}
-
-type UpdateFn<T> = (action: (state: T) => T) => unknown
-
-type ScreenState =
-  | {name: "exposure"}
-  | {name: "recall"}
-  | {name: "feedback"; response: Strip}
-
-function initialState(): ScreenState {
-  return {name: "exposure"}
-}
-
-function hideStrips(): ScreenState {
-  return {name: "recall"}
-}
-
-function submitResponse(
-  response: Strip,
-): (current: ScreenState) => ScreenState {
-  return () => ({name: "feedback", response})
 }
